@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finnell Energy LLC — Oil &amp; Natural Gas Operations</title>
+<meta name="description" content="Finnell Energy LLC — a family-held oil and natural gas operations company. Acquisitions, drilling oversight, production, and mineral administration across Oklahoma and the Southern Plains.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:      #F6F1E4;
+    --paper-deep: #EDE6D3;
+    --green:      #1C352A;
+    --green-ink:  #122019;
+    --gold:       #A6874C;
+    --gold-bright:#C9A96A;
+    --ink:        #23261E;
+    --muted:      #6E6A59;
+    --hairline:   rgba(28,53,42,.30);
+    --hairline-gold: rgba(166,135,76,.55);
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --body:  "EB Garamond", "Times New Roman", serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:1.0625rem;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--gold-bright); color:var(--green-ink); }
+
+  /* ---------- shared vocabulary ---------- */
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
+
+  .eyebrow{
+    font-family:var(--body);
+    font-size:.6875rem;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  .rule-diamond{
+    display:flex; align-items:center; gap:14px;
+    color:var(--gold);
+  }
+  .rule-diamond::before,
+  .rule-diamond::after{
+    content:""; flex:1; height:1px; background:var(--hairline-gold);
+  }
+  .rule-diamond span{ font-size:.6rem; letter-spacing:.5em; padding-left:.5em; }
+
+  h1,h2,h3{ font-family:var(--serif); font-weight:500; color:var(--green-ink); }
+
+  .btn{
+    display:inline-block;
+    font-family:var(--body);
+    font-size:.75rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:16px 34px 15px;
+    border:1px solid var(--gold);
+    color:var(--green-ink);
+    transition:background .25s ease, color .25s ease;
+  }
+  .btn:hover{ background:var(--green); color:var(--paper); border-color:var(--green); }
+  .btn:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  .btn.solid{ background:var(--green); color:var(--paper); border-color:var(--green); }
+  .btn.solid:hover{ background:var(--green-ink); }
+  .btn.gold{ color:var(--paper); border-color:var(--gold-bright); }
+  .btn.gold:hover{ background:var(--gold-bright); color:var(--green-ink); }
+
+  /* ---------- masthead ---------- */
+  header{
+    background:var(--paper);
+    border-bottom:1px solid var(--hairline);
+    position:relative;
+  }
+  header::after{
+    content:""; display:block; height:3px;
+    border-top:1px solid var(--hairline-gold);
+    border-bottom:1px solid var(--hairline-gold);
+  }
+  .mast{ text-align:center; padding:34px 24px 22px; }
+  .mast .over{
+    font-size:.625rem; letter-spacing:.5em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:10px;
+  }
+  .wordmark{
+    font-family:var(--serif); font-weight:600;
+    font-size:clamp(2rem, 5vw, 3.1rem);
+    letter-spacing:.16em; text-transform:uppercase;
+    color:var(--green-ink);
+  }
+  .wordmark .sep{ color:var(--gold); font-size:.6em; vertical-align:.35em; padding:0 .35em; }
+  .mast .under{
+    margin-top:8px;
+    font-size:.6875rem; letter-spacing:.48em; text-transform:uppercase;
+    color:var(--gold);
+  }
+  nav.mainnav{
+    display:flex; justify-content:center; align-items:center; gap:8px;
+    padding:14px 24px 16px; flex-wrap:wrap;
+  }
+  nav.mainnav a{
+    font-family:var(--body);
+    font-size:.72rem; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--ink); text-decoration:none; padding:8px 18px;
+    transition:color .2s ease;
+  }
+  nav.mainnav a:hover, nav.mainnav a:focus-visible{ color:var(--gold); outline:none; }
+  nav.mainnav .dot{ color:var(--hairline-gold); font-size:.7rem; }
+  nav.mainnav .tel{
+    color:var(--muted); font-style:italic; letter-spacing:.08em; text-transform:none;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:88px 0 72px; }
+  .hero .frame{
+    position:relative;
+    border:1px solid var(--hairline-gold);
+    padding:clamp(44px, 8vw, 90px) clamp(24px, 7vw, 96px);
+    text-align:center;
+  }
+  .hero .frame::before{
+    content:""; position:absolute; inset:7px;
+    border:1px solid rgba(166,135,76,.35); pointer-events:none;
+  }
+  .hero .corner{ position:absolute; width:9px; height:9px; transform:rotate(45deg); background:var(--gold); }
+  .hero .c1{ top:-5px; left:-5px; } .hero .c2{ top:-5px; right:-5px; }
+  .hero .c3{ bottom:-5px; left:-5px; } .hero .c4{ bottom:-5px; right:-5px; }
+  .hero .eyebrow{ margin-bottom:26px; }
+  .hero h1{
+    font-size:clamp(2.7rem, 6.4vw, 5rem);
+    line-height:1.12;
+    max-width:18em;
+    margin:0 auto 26px;
+    text-wrap:balance;
+  }
+  .hero h1 em{ font-style:italic; font-weight:400; color:var(--gold); }
+  .hero .lede{
+    max-width:44em; margin:0 auto 40px;
+    font-size:1.1rem; color:var(--muted);
+  }
+  .hero .ctas{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+  /* ---------- ticker strip ---------- */
+  .strip{
+    background:var(--green); color:var(--paper);
+    border-top:1px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+    overflow:hidden;
+  }
+  .strip-inner{
+    display:flex; justify-content:center; align-items:center; gap:0;
+    padding:15px 16px; flex-wrap:wrap; row-gap:6px;
+  }
+  .strip-inner span{
+    font-size:.7rem; letter-spacing:.32em; text-transform:uppercase;
+    padding:0 22px; white-space:nowrap; color:rgba(246,241,228,.92);
+  }
+  .strip-inner i{ color:var(--gold-bright); font-style:normal; font-size:.55rem; }
+
+  /* ---------- section scaffolding ---------- */
+  section{ padding:88px 0; }
+  .sec-head{ text-align:center; margin-bottom:56px; }
+  .sec-head h2{
+    font-size:clamp(2rem, 4.4vw, 3rem);
+    margin-top:16px; letter-spacing:.02em;
+  }
+  .sec-head .sub{ margin-top:14px; color:var(--muted); font-style:italic; font-size:1.05rem; }
+
+  /* ---------- the concern ---------- */
+  .concern-grid{
+    display:grid; grid-template-columns:1.25fr .75fr; gap:64px; align-items:start;
+  }
+  .concern-copy p{ margin-bottom:1.25em; }
+  .concern-copy p:first-of-type::first-letter{
+    font-family:var(--serif); font-weight:600;
+    font-size:4.4em; float:left; line-height:.78;
+    padding:.06em .12em 0 0; color:var(--gold);
+  }
+  .facts{ border-top:2px solid var(--green); }
+  .facts dl{ display:grid; }
+  .facts .row{
+    display:grid; grid-template-columns:96px 1fr; gap:16px;
+    padding:16px 2px; border-bottom:1px solid var(--hairline);
+  }
+  .facts dt{
+    font-size:.65rem; letter-spacing:.3em; text-transform:uppercase;
+    color:var(--gold); padding-top:4px;
+  }
+  .facts dd{ font-family:var(--serif); font-size:1.15rem; color:var(--green-ink); }
+  .facts .note{
+    margin-top:16px; font-style:italic; color:var(--muted); font-size:.95rem;
+  }
+
+  /* ---------- operations ---------- */
+  .ops{ background:var(--paper-deep); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
+  .ops-grid{
+    display:grid; grid-template-columns:1fr 1fr;
+    column-gap:88px;
+  }
+  .op{
+    display:grid; grid-template-columns:64px 1fr; gap:18px;
+    padding:34px 0; border-top:1px solid var(--hairline);
+  }
+  .ops-grid .op:nth-child(-n+2){ border-top:none; padding-top:0; }
+  .op .no{
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:2rem; color:var(--gold); line-height:1;
+  }
+  .op h3{ font-size:1.55rem; margin-bottom:8px; letter-spacing:.02em; }
+  .op p{ color:var(--muted); font-size:1rem; }
+
+  /* ---------- the standard ---------- */
+  .standard{ background:var(--green); color:var(--paper); text-align:center; position:relative; }
+  .standard::before, .standard::after{
+    content:""; position:absolute; left:24px; right:24px; height:1px; background:var(--hairline-gold);
+  }
+  .standard::before{ top:14px; } .standard::after{ bottom:14px; }
+  .standard .eyebrow{ color:var(--gold-bright); }
+  .standard h2{ color:var(--paper); font-size:clamp(2rem, 4.4vw, 3rem); margin-top:16px; }
+  .principles{
+    max-width:860px; margin:52px auto 0; text-align:left;
+  }
+  .principle{
+    display:grid; grid-template-columns:84px 1fr; gap:24px; align-items:baseline;
+    padding:26px 0; border-top:1px solid rgba(201,169,106,.35);
+  }
+  .principle:first-child{ border-top:none; padding-top:0; }
+  .principle .rn{
+    font-family:var(--serif); font-size:1.9rem; color:var(--gold-bright);
+    letter-spacing:.1em;
+  }
+  .principle h3{
+    color:var(--paper); font-size:1.6rem; margin-bottom:6px;
+  }
+  .principle p{ color:rgba(246,241,228,.75); font-size:1rem; }
+
+  /* ---------- interlude ---------- */
+  .interlude{ text-align:center; padding:84px 0; }
+  .monogram{
+    width:92px; height:92px; margin:0 auto 26px;
+    border:1px solid var(--gold); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-weight:600; font-size:1.9rem;
+    letter-spacing:.08em; color:var(--gold);
+    position:relative;
+  }
+  .monogram::after{
+    content:""; position:absolute; inset:5px; border-radius:50%;
+    border:1px solid rgba(166,135,76,.4);
+  }
+  .interlude blockquote{
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(1.5rem, 3.4vw, 2.2rem);
+    color:var(--green-ink); max-width:24em; margin:0 auto 14px; text-wrap:balance;
+  }
+  .interlude cite{
+    font-style:normal; font-size:.6875rem; letter-spacing:.4em;
+    text-transform:uppercase; color:var(--gold);
+  }
+
+  /* ---------- correspondence ---------- */
+  .contact{ background:var(--paper-deep); border-top:1px solid var(--hairline); }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start; }
+  .contact h2{ font-size:clamp(1.9rem, 4vw, 2.7rem); margin:14px 0 22px; }
+  .contact .manner{ color:var(--muted); max-width:36em; margin-bottom:36px; }
+  .c-lines{ border-top:2px solid var(--green); }
+  .c-line{
+    display:grid; grid-template-columns:110px 1fr; gap:16px;
+    padding:16px 2px; border-bottom:1px solid var(--hairline); align-items:baseline;
+  }
+  .c-line dt{
+    font-size:.65rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold);
+  }
+  .c-line dd{ font-family:var(--serif); font-size:1.15rem; color:var(--green-ink); }
+  .c-line dd a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--hairline-gold); }
+  .c-line dd a:hover{ color:var(--gold); }
+
+  form.inquiry{
+    border:1px solid var(--hairline-gold); padding:38px 36px;
+    background:var(--paper); position:relative;
+  }
+  form.inquiry::before{
+    content:""; position:absolute; inset:6px;
+    border:1px solid rgba(166,135,76,.3); pointer-events:none;
+  }
+  .field{ margin-bottom:22px; }
+  .field label{
+    display:block; font-size:.65rem; letter-spacing:.3em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:8px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%; font-family:var(--body); font-size:1rem; color:var(--ink);
+    background:transparent; border:none; border-bottom:1px solid var(--hairline);
+    padding:8px 2px 10px; outline:none; border-radius:0;
+    transition:border-color .2s ease;
+  }
+  .field textarea{ resize:vertical; min-height:96px; }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--gold); }
+  .field select{ appearance:none; -webkit-appearance:none;
+    background-image:linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+    background-position:calc(100% - 14px) 55%, calc(100% - 9px) 55%;
+    background-size:5px 5px; background-repeat:no-repeat;
+  }
+  .form-actions{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:6px; }
+  .form-note{ font-style:italic; font-size:.9rem; color:var(--muted); }
+  .sent{
+    text-align:center; padding:60px 20px;
+  }
+  .sent .rule-diamond{ max-width:220px; margin:0 auto 22px; }
+  .sent h3{ font-size:1.8rem; margin-bottom:10px; }
+  .sent p{ color:var(--muted); font-style:italic; }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--green-ink); color:rgba(246,241,228,.8); }
+  .foot{
+    display:grid; grid-template-columns:1fr auto 1fr; gap:32px; align-items:center;
+    padding:52px 0 30px; text-align:center;
+  }
+  .foot .fw{
+    font-family:var(--serif); font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--paper); font-size:1.3rem;
+  }
+  .foot .fw .sep{ color:var(--gold-bright); font-size:.6em; vertical-align:.35em; padding:0 .3em; }
+  .foot .fnav{ display:flex; gap:6px; justify-content:center; flex-wrap:wrap; }
+  .foot .fnav a{
+    color:rgba(246,241,228,.75); text-decoration:none;
+    font-size:.68rem; letter-spacing:.26em; text-transform:uppercase; padding:6px 12px;
+  }
+  .foot .fnav a:hover{ color:var(--gold-bright); }
+  .foot .faddr{ font-size:.92rem; font-style:italic; color:rgba(246,241,228,.6); }
+  .fineprint{
+    border-top:1px solid rgba(201,169,106,.25);
+    padding:20px 0 26px; text-align:center;
+    font-size:.8rem; color:rgba(246,241,228,.45);
+  }
+  .fineprint i{ color:var(--gold-bright); font-style:normal; padding:0 10px; }
+
+  /* ---------- reveal motion ---------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px){
+    .concern-grid, .ops-grid, .contact-grid{ grid-template-columns:1fr; }
+    .concern-grid{ gap:44px; }
+    .ops-grid{ column-gap:0; }
+    .ops-grid .op:nth-child(2){ border-top:1px solid var(--hairline); padding-top:34px; }
+    .ops-grid .op:first-child{ padding-top:0; }
+    .contact-grid{ gap:48px; }
+  }
+  @media (max-width: 640px){
+    .wrap{ padding:0 22px; }
+    .hero{ padding:56px 0 52px; }
+    section{ padding:64px 0; }
+    .op{ grid-template-columns:44px 1fr; gap:12px; }
+    .principle{ grid-template-columns:56px 1fr; gap:14px; }
+    .foot{ grid-template-columns:1fr; }
+    nav.mainnav .tel{ display:none; }
+    .c-line{ grid-template-columns:92px 1fr; }
+    .facts .row{ grid-template-columns:84px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mast">
+    <p class="over">Oil &amp; Natural Gas Operations</p>
+    <div class="wordmark">Finnell<span class="sep">❖</span>Energy</div>
+    <p class="under">L L C &nbsp;·&nbsp; Oklahoma</p>
+  </div>
+  <nav class="mainnav" aria-label="Primary">
+    <a href="#concern">The Concern</a><span class="dot">❖</span>
+    <a href="#operations">Operations</a><span class="dot">❖</span>
+    <a href="#standard">The Standard</a><span class="dot">❖</span>
+    <a href="#contact">Correspondence</a><span class="dot">❖</span>
+    <span class="tel">(405) 000-0000</span>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <div class="wrap">
+      <div class="frame">
+        <span class="corner c1"></span><span class="corner c2"></span>
+        <span class="corner c3"></span><span class="corner c4"></span>
+        <p class="eyebrow">Est. Oklahoma &nbsp;·&nbsp; Family Held</p>
+        <h1>Oil &amp; natural gas, operated <em>the traditional way.</em></h1>
+        <p class="lede">Finnell Energy LLC acquires, develops, and operates oil and natural gas
+          interests across Oklahoma and the Southern Plains &mdash; with the patience of a family
+          concern and the discipline of a working operator.</p>
+        <div class="ctas">
+          <a class="btn solid" href="#contact">Inquire Regarding Interests</a>
+          <a class="btn" href="#operations">Our Practice</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip-inner">
+      <span>Lease Acquisition</span><i>❖</i>
+      <span>Drilling &amp; Completion</span><i>❖</i>
+      <span>Producing Operations</span><i>❖</i>
+      <span>Minerals &amp; Royalties</span><i>❖</i>
+      <span>Oklahoma &amp; the Southern Plains</span>
+    </div>
+  </div>
+
+  <!-- THE CONCERN -->
+  <section id="concern">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="rule-diamond"><span>❖</span></div>
+        <h2>The Concern</h2>
+        <p class="sub">An operator in the old sense of the word</p>
+      </div>
+      <div class="concern-grid">
+        <div class="concern-copy reveal">
+          <p>Finnell Energy is a family-held oil and gas company in the traditional mold &mdash;
+            built on leasehold, operated wells, and long-held mineral interests rather than
+            speculation. We take positions we intend to keep, drill with our own names on the
+            ticket, and stay hands-on from title room to tank battery.</p>
+          <p>Our work is deliberately unglamorous: careful acquisition, conservative development,
+            and steady, well-run production. We answer our own phones, stand behind our
+            agreements, and treat every lessor, surface owner, and working partner the way we
+            would expect to be treated on our own ground.</p>
+          <p>The company is operated for the long term. That shapes everything &mdash; how we
+            structure a deal, how we complete a well, and how we leave a location when the
+            work is done.</p>
+        </div>
+        <aside class="facts reveal" aria-label="Company facts">
+          <dl>
+            <div class="row"><dt>Character</dt><dd>Independent &amp; family-held</dd></div>
+            <div class="row"><dt>Focus</dt><dd>Oil &amp; natural gas operations</dd></div>
+            <div class="row"><dt>Footprint</dt><dd>Oklahoma &amp; the Southern Plains</dd></div>
+            <div class="row"><dt>Manner</dt><dd>Discreet, direct, dependable</dd></div>
+          </dl>
+          <p class="note">This page is a demonstration concept; particulars shown are placeholders pending final copy.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATIONS -->
+  <section id="operations" class="ops">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="rule-diamond"><span>❖</span></div>
+        <h2>The Practice</h2>
+        <p class="sub">Four matters, handled thoroughly</p>
+      </div>
+      <div class="ops-grid">
+        <article class="op reveal">
+          <div class="no">i.</div>
+          <div>
+            <h3>Acquisition &amp; Title</h3>
+            <p>Leasehold and mineral acquisitions conducted quietly and properly, with title
+              work handled to the standard of a courthouse regular &mdash; no surprises carried
+              into the drill site.</p>
+          </div>
+        </article>
+        <article class="op reveal">
+          <div class="no">ii.</div>
+          <div>
+            <h3>Drilling &amp; Completion</h3>
+            <p>Wells designed and supervised field-first: sound casing, careful cementing, and
+              completions done once &mdash; and done right &mdash; on both oil and gas wells.</p>
+          </div>
+        </article>
+        <article class="op reveal">
+          <div class="no">iii.</div>
+          <div>
+            <h3>Production &amp; Operations</h3>
+            <p>Day-to-day operation of producing wells: dependable liftings, honest gauges,
+              tidy wellsites, and relationships with surface owners that outlast the
+              location.</p>
+          </div>
+        </article>
+        <article class="op reveal">
+          <div class="no">iv.</div>
+          <div>
+            <h3>Minerals &amp; Royalties</h3>
+            <p>Administration of mineral and royalty interests with clear division orders and
+              payments that arrive when they should &mdash; the quiet courtesy that keeps
+              country open for the next deal.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STANDARD -->
+  <section id="standard" class="standard">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="rule-diamond"><span>❖</span></div>
+        <h2>The Standard</h2>
+      </div>
+      <div class="principles">
+        <div class="principle reveal">
+          <div class="rn">I.</div>
+          <div>
+            <h3>Patience over promotion</h3>
+            <p>We would rather hold a good position for ten years than chase a headline this
+              quarter. Deals are made to be kept, not flipped.</p>
+          </div>
+        </div>
+        <div class="principle reveal">
+          <div class="rn">II.</div>
+          <div>
+            <h3>Stewardship over extraction</h3>
+            <p>The land, the water, and the lessor outlast any well. We operate as guests on
+              other people's country &mdash; and behave accordingly.</p>
+          </div>
+        </div>
+        <div class="principle reveal">
+          <div class="rn">III.</div>
+          <div>
+            <h3>The operator's word, kept</h3>
+            <p>In this business your name is your bond. Our agreements are plain-spoken, and we
+              do what we said we would do.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERLUDE -->
+  <section class="interlude" aria-label="House maxim">
+    <div class="wrap reveal">
+      <div class="monogram" aria-hidden="true">FE</div>
+      <blockquote>&ldquo;Do right by the land, the lessor, and the ledger.&rdquo;</blockquote>
+      <cite>House Maxim</cite>
+    </div>
+  </section>
+
+  <!-- CORRESPONDENCE -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="rule-diamond" style="max-width:180px;"><span>❖</span></div>
+          <h2>Correspondence</h2>
+          <p class="manner">We take inquiries concerning leasehold, minerals, joint operations,
+            and service work. Kindly write or telephone; a principal will answer.</p>
+          <dl class="c-lines">
+            <div class="c-line"><dt>Offices</dt><dd>Oklahoma City, Oklahoma</dd></div>
+            <div class="c-line"><dt>Telephone</dt><dd><a href="tel:+14050000000">(405) 000-0000</a></dd></div>
+            <div class="c-line"><dt>Post</dt><dd><a href="mailto:inquiries@finnellenergy.com">inquiries@finnellenergy.com</a></dd></div>
+            <div class="c-line"><dt>Hours</dt><dd>Weekdays, eight until five</dd></div>
+          </dl>
+        </div>
+        <div class="reveal">
+          <form class="inquiry" id="inquiryForm" novalidate>
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-interest">Nature of Inquiry</label>
+              <select id="f-interest" name="interest">
+                <option>Mineral or royalty owner</option>
+                <option>Landowner / lessor</option>
+                <option>Joint or working interest</option>
+                <option>Vendor or service</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" name="message" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="btn solid" type="submit">Send Word</button>
+              <span class="form-note">Demonstration form &mdash; no transmission occurs.</span>
+            </div>
+          </form>
+          <div class="sent" id="sentPanel" hidden>
+            <div class="rule-diamond"><span>❖</span></div>
+            <h3>Received with thanks.</h3>
+            <p>This is a demonstration page; no message was transmitted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="fw">Finnell<span class="sep">❖</span>Energy</div>
+      <nav class="fnav" aria-label="Footer">
+        <a href="#concern">The Concern</a>
+        <a href="#operations">Operations</a>
+        <a href="#standard">The Standard</a>
+        <a href="#contact">Correspondence</a>
+      </nav>
+      <div class="faddr">Oklahoma City, Oklahoma &nbsp;·&nbsp; (405) 000-0000</div>
+    </div>
+    <div class="fineprint">
+      &copy; <span id="yr">2026</span> Finnell Energy LLC<i>❖</i>Demonstration concept — names,
+      figures &amp; contact details are placeholders pending final copy<i>❖</i>Oil &amp; natural gas operations
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // Demonstration form
+  var form = document.getElementById('inquiryForm');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var name = document.getElementById('f-name');
+    var msg  = document.getElementById('f-message');
+    if (!name.value.trim() || !msg.value.trim()){
+      (name.value.trim() ? msg : name).focus();
+      return;
+    }
+    form.hidden = true;
+    document.getElementById('sentPanel').hidden = false;
+  });
+</script>
+</body>
+</html>
